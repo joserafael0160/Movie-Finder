@@ -1,6 +1,6 @@
+import PropTypes from "prop-types"
 
-
-function ListOfMovies ({movies}) {
+function ListOfMovies ({ movies }) {
   return (
     
     <ul>
@@ -17,13 +17,17 @@ function ListOfMovies ({movies}) {
   )
 }
 
+ListOfMovies.propTypes = {
+  movies: PropTypes.array.isRequired,
+};
+
 function NoMoviesResults () {
   return (
     <p>No movies found for this search</p>
   )
 }
 
-export function Movies ({movies}) {
+export function Movies ({ movies }) {
   const hasMovies = movies?.length > 0
 
   return (
@@ -33,3 +37,7 @@ export function Movies ({movies}) {
         
   )
 }
+
+Movies.propTypes = {
+  movies: PropTypes.array,
+};
