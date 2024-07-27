@@ -39,12 +39,12 @@ function useSearch() {
   return { search, updateSearch, error }
 }
 function App() { 
-  const { movies } = useMovies()
   const { search, updateSearch, error } = useSearch()
+  const { movies, getMovies } = useMovies({ search })
 
   function handleSubmit(event) {
     event.preventDefault()
-    console.log({ search })
+    getMovies()
   }
 
   function handleChange(event) {
