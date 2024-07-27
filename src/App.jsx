@@ -1,4 +1,5 @@
 import "./App.css"
+import { useRef } from "react"
 import { useMovies } from "./hooks/useMovies"
 import { Movies } from "./components/Movies"
 
