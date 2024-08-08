@@ -1,6 +1,7 @@
 import { useId } from "react"
 import { SortIcon } from "./SortIcon"
-export function Form({handleSubmit, error, handleChange, search, handleSort, sort}) {
+import PropTypes from "react"
+export function Form({handleSubmit, error, handleChange, handleSort, search, sort}) {
   const sortId = useId()
   return (
     <form className="form" onSubmit={handleSubmit}>
@@ -16,4 +17,15 @@ export function Form({handleSubmit, error, handleChange, search, handleSort, sor
       <label htmlFor={sortId} title="Sort by year"><SortIcon /></label> 
     </form>
   )
+}
+
+
+Form.propTypes = {
+  handleSubmit: PropTypes.func,
+  error: PropTypes.bool,
+  handleChange: PropTypes.func,
+  handleSort: PropTypes.func,
+  search: PropTypes.string,
+  sort: PropTypes.array,
+
 }

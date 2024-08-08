@@ -5,6 +5,7 @@ import debounce from "just-debounce-it"
 import { useSearch } from "./hooks/useSearch"
 import { Main } from "./components/Main"
 import { Header } from "./components/Header"
+import { Form } from "./components/Form"
 
 function App() { 
   const [sort, setSort] = useState (false)
@@ -36,7 +37,9 @@ function App() {
 
   return (
     <div className="page">
-      <Header handleSubmit={handleSubmit} error={error} handleChange={handleChange} search={search} handleSort={handleSort} sort={sort}/>  
+      <Header error={error} >
+        <Form handleSubmit={handleSubmit} error={error} handleChange={handleChange} search={search} handleSort={handleSort} sort={sort}/>
+      </Header>  
       <Main loading={loading} movies={movies}/>
     </div>
   )
