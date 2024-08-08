@@ -1,49 +1,17 @@
 import "./App.css"
-import { useCallback, useEffect, useRef, useState, useId } from "react"
+import { useCallback, useState, useId } from "react"
 import { useMovies } from "./hooks/useMovies"
 import { Movies } from "./components/Movies"
 import debounce from "just-debounce-it"
 import { SortIcon } from "./components/SortIcon"
-function useSearch() {
-  const [search, updateSearch] = useState("")
-  const [error, setError] = useState(null)
-  const isFirstInput = useRef(true)
-
-  useEffect(() => {
-    
-
-    if(search === "") {
-      if(isFirstInput.current) {
-        isFirstInput.current = search === ""
-        return
-      }
-      else {
-        setError("you can't search for an empty movie")
-        return 
-
-      }
-    }
-
-    if(search.match(/^\d+$/)) {
-      setError("you can't search for a movie with a number")
-      return
-    }
-
-    if(search.length < 3) {
-      setError("you can't search for a movie with less than 3 characters")
-      return
-    }
-    
-    setError(null)
-  }, [search])
-
-  return { search, updateSearch, error }
-}
+import { useSearch } from "./hooks/useSearch"
 function App() { 
+  const sortId = useId()
   const [sort, setSort] = useState (false)
+  
   const { search, updateSearch, error } = useSearch()
   const { movies, loading, getMovies } = useMovies({ search, sort })
-  const sortId = useId()
+
   const debouncedGetMovies = useCallback(
     debounce(search => {
       getMovies({ search })
@@ -65,9 +33,10 @@ function App() {
     updateSearch(newSearch)
     debouncedGetMovies(newSearch)
   }
+
   return (
     <div className="page">
-      <header >
+      <header>
         <h1>Movie Finder</h1>
         <form className="form" onSubmit={handleSubmit}>
           <input 
