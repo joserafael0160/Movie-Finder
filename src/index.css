@@ -226,15 +226,7 @@ input[type='radio'] {
   cursor: pointer;
 }
 
-input,
-select {
-  display: block;
-}
 
-[type='checkbox'],
-[type='radio'] {
-  display: initial;
-}
 
 input {
   color: #fff;

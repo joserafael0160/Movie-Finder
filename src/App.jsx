@@ -1,8 +1,9 @@
 import "./App.css"
-import { useCallback, useEffect, useRef, useState } from "react"
+import { useCallback, useEffect, useRef, useState, useId } from "react"
 import { useMovies } from "./hooks/useMovies"
 import { Movies } from "./components/Movies"
 import debounce from "just-debounce-it"
+import { SortIcon } from "./components/SortIcon"
 function useSearch() {
   const [search, updateSearch] = useState("")
   const [error, setError] = useState(null)
@@ -42,7 +43,7 @@ function App() {
   const [sort, setSort] = useState (false)
   const { search, updateSearch, error } = useSearch()
   const { movies, loading, getMovies } = useMovies({ search, sort })
-
+  const sortId = useId()
   const debouncedGetMovies = useCallback(
     debounce(search => {
       getMovies({ search })
@@ -66,16 +67,20 @@ function App() {
   }
   return (
     <div className="page">
-      <header>
+      <header >
         <h1>Movie Finder</h1>
         <form className="form" onSubmit={handleSubmit}>
           <input 
             style={{
               border: "1px solid transparent",
               borderColor: error ? "red" : "transparent",
-            }} onChange={handleChange} value={search} name="query" placeholder="Avengers, Star Wars, The Matrix" />
-          <input type="checkbox" onChange={handleSort} checked={sort} />
+            }} onChange={handleChange} value={search} name="query" placeholder="Avengers, Star Wars, The Matrix" 
+          />
           <button>Search</button>
+        
+          <input id={sortId}  type="checkbox" onChange={handleSort} checked={sort} hidden/>
+          <label htmlFor={sortId} title="Sort by year"><SortIcon /></label> 
+          
         </form>
         {error && <p style={{color: "red"}}>{error}</p>}
       </header>
