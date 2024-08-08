@@ -1,12 +1,12 @@
 import "./App.css"
-import { useCallback, useState, useId } from "react"
+import { useCallback, useState } from "react"
 import { useMovies } from "./hooks/useMovies"
-import { Movies } from "./components/Movies"
 import debounce from "just-debounce-it"
-import { SortIcon } from "./components/SortIcon"
 import { useSearch } from "./hooks/useSearch"
+import { Main } from "./components/Main"
+import { Header } from "./components/Header"
+
 function App() { 
-  const sortId = useId()
   const [sort, setSort] = useState (false)
   
   const { search, updateSearch, error } = useSearch()
@@ -36,29 +36,8 @@ function App() {
 
   return (
     <div className="page">
-      <header>
-        <h1>Movie Finder</h1>
-        <form className="form" onSubmit={handleSubmit}>
-          <input 
-            style={{
-              border: "1px solid transparent",
-              borderColor: error ? "red" : "transparent",
-            }} onChange={handleChange} value={search} name="query" placeholder="Avengers, Star Wars, The Matrix" 
-          />
-          <button>Search</button>
-        
-          <input id={sortId}  type="checkbox" onChange={handleSort} checked={sort} hidden/>
-          <label htmlFor={sortId} title="Sort by year"><SortIcon /></label> 
-          
-        </form>
-        {error && <p style={{color: "red"}}>{error}</p>}
-      </header>
-
-      <main>
-        {
-          loading ? <p>Cargando...</p> : <Movies movies={movies}/>
-        }
-      </main>
+      <Header handleSubmit={handleSubmit} error={error} handleChange={handleChange} search={search} handleSort={handleSort} sort={sort}/>  
+      <Main loading={loading} movies={movies}/>
     </div>
   )
 }
