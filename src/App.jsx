@@ -89,7 +89,6 @@ function App() {
         {
           loading ? <p>Cargando...</p> : <Movies movies={movies}/>
         }
-        
       </main>
     </div>
   )
