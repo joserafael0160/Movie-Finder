@@ -55,16 +55,20 @@
 >- [**Spanish README**](https://github.com/joserafael0160/Movie-Finder/blob/main/README.es.md)
 
 ## 📜 About 
-Welcome to my movie search engine! With this tool, you can explore and search for your favorite films. Filter by release year and discover new cinematic gems. Enjoy the magic of cinema! 🎥🍿
+Welcome to my movie search engine! With this tool, you can explore and search for your favorite films. 
+
+Filter by release year and discover new cinematic gems. 
+
+Enjoy the magic of cinema! 🎥🍿
 
 <p align="right">(<a href="#top" >Go Back To Top 🔝</a>)</p>
 
 ## 👀 Preview
 <h4>In a PC (1920x1080)</h4>
-<img src="./src/assets/images/webp/Movie-Finder(PC).jpg" alt="Project screenshot with a resolution of 1920x1080" width="200">
+<img src="./src/assets/images/webp/Movie-Finder(PC).webp" alt="Project screenshot with a resolution of 1920x1080" width="900">
 
 <h4>In a iPhone SE (375x667)</h4>
-<img src="./src/assets/images/webp/Movie-Finder(iPhone_SE).jpg" alt="Project screenshot with a resolution of 375x667" width="200">
+<img src="./src/assets/images/webp/Movie-Finder(iPhone_SE).webp" alt="Project screenshot with a resolution of 375x667" width="200">
 
 <p align="right">(<a href="#top">Go Back To Top 🔝</a>)</p>
 

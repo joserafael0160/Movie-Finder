@@ -65,10 +65,10 @@ Filtra por año de lanzamiento y descubre nuevas joyas cinematográficas.
 
 ## 👀 Vista previa
 <h4>En un PC (1920x1080)</h4>
-<img src="./src/assets/images/webp/Movie-Finder(PC).jpg" alt="Captura de pantalla del proyecto con una resolucion de 1920x1080" width="200">
+<img src="./src/assets/images/webp/Movie-Finder(PC).webp" alt="Captura de pantalla del proyecto con una resolucion de 1920x1080" width="900">
 
 <h4>En un iPhone SE (375x667)</h4>
-<img src="./src/assets/images/webp/Movie-Finder(iPhone_SE).jpg" alt="Captura de pantalla del proyecto con una resolucion de 375x667" width="200">
+<img src="./src/assets/images/webp/Movie-Finder(iPhone_SE).webp" alt="Captura de pantalla del proyecto con una resolucion de 375x667" width="200">
 
 <p align="right">(<a href="#top">Volver al inicio 🔝</a>)</p>
 
